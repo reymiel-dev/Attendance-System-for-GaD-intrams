@@ -37,15 +37,30 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
-    <h1>Student Attendance System</h1>
-    <p>Enter you Student ID number:</p>
+    <div class="stars">
+        <span class="star"></span>
+        <span class="star"></span>
+        <span class="star"></span>
+        <span class="star"></span>
+        <span class="star"></span>
+        <span class="star"></span>
+        <span class="star"></span>
+        <span class="star"></span>
+        <span class="star"></span>
+        <span class="star"></span>
+    </div>
 
-    <form action="index.php" method="post">
-        <input type="text" name="student_id" placeholder="Enter Student ID" required>
-        <button type="submit">Submit</button>
-    </form>
-
+    <main class="panel" >
+        <h1>Attendance</h1>
+        <p>Enter you Student ID number:</p>
+        
+        <form action="index.php" method="post">
+            <input type="text" name="student_id" placeholder="Enter Student Id" required>
+            <button type="submit">OK
+            </button>
+        </form>
+    </main>
+        
     <p><?php echo $message; ?></p>
 
 </body>
