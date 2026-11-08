@@ -55,7 +55,7 @@
         <p>Enter you Student ID number:</p>
         
         <form action="index.php" method="post">
-            <input type="text" name="student_id" placeholder="Enter Student Id" required>
+            <input type="text" name="student_id" placeholder="Enter Student Id" autofocus required>
             <button type="submit">OK
             </button>
         </form>

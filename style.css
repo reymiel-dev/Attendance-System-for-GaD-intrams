@@ -67,6 +67,16 @@ body {
 
 }
 
+body::after{
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        to bottom, transparent 0 2px, rgba(0,0,0,.18) 2px 4px
+        );
+}
+
 .panel {
     position: relative;
     text-align: center;
@@ -75,12 +85,14 @@ body {
 h1{
     position: relative;
     font-family: "daydream";
-    font-size: 50px;
+    font-size: 60px;
     margin: 30px;
 
     color: var(--cream);
     -webkit-text-stroke: 1px var(--panel-dark);
-    text-shadow: 3px 3px 0 var(--orange), 6px 6px 0 var(--red), 9px 9px 0 var(--outline);
+    text-shadow: 3px 3px 0 var(--orange), 6px 6px 0 var(--red), 11px 11px 0 var(--outline);
+
+    animation: bob 2s steps(2) infinite;
 }
 
 p{
@@ -101,6 +113,7 @@ input{
 
     height: 50px;
     width: 50%;
+    margin-bottom: 10px;
 
     font-size: 25px;
     font-family: 'pixop';
@@ -128,18 +141,12 @@ button{
     width: 80px;
     text-align: center;
     margin-left: 3px;
+    margin-bottom: 10px;
 
     font-size: 25px;
     font-family: 'pixop';
     font-weight: bolder;
     letter-spacing: 2px;
-}
-
-.panel {
-    position: relative;
-    overflow: hidden;
-    background: #2a0e12;
-    border-radius: 18px;
 }
 
 .stars{
@@ -182,5 +189,11 @@ button{
     to {
         opacity: 1;
         transform: scale(1.3);
+    }
+}
+
+@keyframes bob {
+    50% {
+        transform: translateY(-5px);
     }
 }
