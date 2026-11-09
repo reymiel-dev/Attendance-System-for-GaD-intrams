@@ -20,10 +20,12 @@
             $stmt = $conn->prepare($insert);
             $stmt->execute([$name, $studentId, $courseAndSection]);
             
-            $message = "Attendance recorded successfully!, " . htmlspecialchars($name);
+            // echo json_encode(["success" => true, "name" =>name]);
+            $message = "Success";
         }
         else{
-            $message = "Student ID not found!";
+            // echo json_encode(["success" => false]);
+            $message = "Failed";
         }
     }
 ?>
@@ -54,14 +56,63 @@
         <h1>Attendance</h1>
         <p>Enter you Student ID number:</p>
         
-        <form action="index.php" method="post">
-            <input type="text" name="student_id" placeholder="Enter Student Id" autofocus required>
+        <form action="index.php" method="post" id="attendance-record">
+            <input type="text" id="student_id" name="student_id" placeholder="Enter Student Id" autofocus required>
             <button type="submit">OK
             </button>
         </form>
+
+        <p><?php $message?></p>
     </main>
         
-    <p><?php echo $message; ?></p>
+    <!-- <div id="result" class="result hidden">
+        <div class="result-panel">
+            <h1 class="result-title">UPDATE</h1>
+            <p class="result-text">player <span><?php $name?></span> has joined the game.</p>
+            <button type="button "id="result-button">Press Enter</button>
+
+        </div>
+    </div> -->
+
+
+    <!-- <script>
+        const form = document.getElementById("attendance_record");
+        const overlay = document.getElementById("result");
+        const okButton = document.getElementById("result-button");
+        const input = document.getElementById("student_id");
+        const resultText = document.getElementById("result-text");
+
+        form.addEventListener("submit", =
+            function(event){
+                event.preventDefault();
+
+                const formData = new FormData(form);
+
+                fetch("index.php", {method: "POST", body: formData})
+                .then(response => response.json())
+                .then(data => {
+                    overlay.classList.remove("hidden");
+                    if(data.success) {
+                        resultText.textContent = data.name + " has joined the game!";
+                    }
+                    else{
+                        resultText.textContent = "Invalid Student ID!";
+                    }
+                })
+
+                .catch(error => {
+                    console.error("Error:", error);
+                });
+            }
+        );
+
+        document.getElementById("okButton").addEventListener("click", 
+            function(){
+                overlay.classList.add("hidden");
+                form.reset();
+                document.getElementById("student_id").focus();
+        });
+    </script> -->
 
 </body>
 </html>

@@ -1,0 +1,40 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f2f4f8;
+    color: #1f2937;
+}
+
+.booth {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 24px;
+
+    display: grid;
+    grid-template-columns: 1fr 2fr 170px;
+    gap: 24px;
+    align-items: start;
+}
+
+.download-box {
+    text-align: right;
+    margin-bottom: 16px;
+}
+
+.download-btn {
+    display: inline-block;
+    background: #16a34a;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 18px;
+    border-radius: 8px;
+}
+
+.download-btn:hover{
+    background: #15803d;
+}
